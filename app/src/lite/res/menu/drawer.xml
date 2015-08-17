@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/drawer_diary"
+            android:icon="@drawable/ic_diary_black_24dp"
+            android:title="@string/diary"/>
+
+        <item
+            android:id="@+id/drawer_reports"
+            android:icon="@drawable/ic_reports_black_24dp"
+            android:title="@string/reports"/>
+
+        <item
+            android:id="@+id/drawer_settings"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="@string/settings"/>
+    </group>
+</menu>

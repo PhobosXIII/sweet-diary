@@ -11,10 +11,26 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        lite {
+            applicationId "ru.quect.sweetdiary.lite"
+            versionName "1.0-lite"
+        }
+        pro {
+            applicationId "ru.quect.sweetdiary.pro"
+            versionName "1.0-pro"
         }
     }
 }

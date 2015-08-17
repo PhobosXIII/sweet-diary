@@ -11,7 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity
+public abstract class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private static final String SELECTED_NAV_ITEM_ID = "selected_nav_item_id";
     
@@ -55,39 +55,21 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
-        Fragment fragment;
+        Fragment fragment = getFragment(menuItem);
 
-        Class fragmentClass;
-        switch(menuItem.getItemId()) {
-            case R.id.drawer_diary:
-                fragmentClass = DiaryFragment.class;
-                break;
-            case R.id.drawer_basal:
-                fragmentClass = BasalFragment.class;
-                break;
-            case R.id.drawer_reports:
-                fragmentClass = ReportsFragment.class;
-                break;
-            default:
-                fragmentClass = DiaryFragment.class;
-                break;
+        if (fragment != null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
+
+            menuItem.setChecked(true);
+            setTitle(menuItem.getTitle());
+            mDrawerLayout.closeDrawers();
+
+            return true;
         }
-
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
-        } catch (Exception e) {
-            e.printStackTrace();
+        else {
             return false;
         }
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
-
-        menuItem.setChecked(true);
-        setTitle(menuItem.getTitle());
-        mDrawerLayout.closeDrawers();
-
-        return true;
     }
 
     private void initToolbar() {
@@ -106,4 +88,6 @@ public class MainActivity extends AppCompatActivity
         mNavigationView = (NavigationView) findViewById(R.id.navigation_view);
         mNavigationView.setNavigationItemSelectedListener(this);
     }
+
+    public abstract Fragment getFragment(MenuItem menuItem);
 }

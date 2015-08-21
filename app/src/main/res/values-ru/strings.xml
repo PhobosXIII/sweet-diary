@@ -3,4 +3,9 @@
     <string name="diary">Дневник</string>
     <string name="reports">Отчеты</string>
     <string name="settings">Настройки</string>
+
+    <!-- Glucose units -->
+    <string name="glucose_units">Единицы измерения глюкозы</string>
+    <string name="glucose_units_label_si">ммоль/л</string>
+    <string name="glucose_units_label_traditional">мг/дл</string>
 </resources>

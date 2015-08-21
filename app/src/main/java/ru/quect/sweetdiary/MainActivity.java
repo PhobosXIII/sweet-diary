@@ -1,9 +1,9 @@
 package ru.quect.sweetdiary;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -58,7 +58,7 @@ public abstract class MainActivity extends AppCompatActivity
         Fragment fragment = getFragment(menuItem);
 
         if (fragment != null) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentManager fragmentManager = getFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
 
             menuItem.setChecked(true);

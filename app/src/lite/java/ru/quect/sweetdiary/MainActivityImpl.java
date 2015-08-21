@@ -1,6 +1,6 @@
 package ru.quect.sweetdiary;
 
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.MenuItem;
 
 public class MainActivityImpl extends MainActivity {
@@ -15,6 +15,9 @@ public class MainActivityImpl extends MainActivity {
                 break;
             case R.id.drawer_reports:
                 fragmentClass = ReportsFragment.class;
+                break;
+            case R.id.drawer_settings:
+                fragmentClass = SettingsFragment.class;
                 break;
             default:
                 fragmentClass = DiaryFragment.class;

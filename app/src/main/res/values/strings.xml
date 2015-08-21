@@ -2,4 +2,12 @@
     <string name="diary">Diary</string>
     <string name="reports">Reports</string>
     <string name="settings">Settings</string>
+
+    <!-- Glucose units -->
+    <string name="glucose_units_key" translatable="false">glucose_units</string>
+    <string name="glucose_units">Glucose units</string>
+    <string name="glucose_units_label_si">mmol/l</string>
+    <string name="glucose_units_label_traditional">mg/dl</string>
+    <string name="glucose_units_si" translatable="false">si</string>
+    <string name="glucose_units_traditional" translatable="false">traditional</string>
 </resources>

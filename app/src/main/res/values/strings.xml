@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
     <string name="diary">Diary</string>
     <string name="reports">Reports</string>
     <string name="settings">Settings</string>
@@ -10,4 +10,6 @@
     <string name="glucose_units_label_traditional">mg/dl</string>
     <string name="glucose_units_si" translatable="false">si</string>
     <string name="glucose_units_traditional" translatable="false">traditional</string>
+
+    <string name="format_glucose"><xliff:g id="glucose">%1.1f</xliff:g></string>
 </resources>

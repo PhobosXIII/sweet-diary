@@ -11,5 +11,6 @@
     <string name="glucose_units_si" translatable="false">si</string>
     <string name="glucose_units_traditional" translatable="false">traditional</string>
 
-    <string name="format_glucose"><xliff:g id="glucose">%1.1f</xliff:g></string>
+    <string name="format_glucose_si"><xliff:g id="glucose">%1.1f</xliff:g></string>
+    <string name="format_glucose_traditional"><xliff:g id="glucose">%1d</xliff:g></string>
 </resources>

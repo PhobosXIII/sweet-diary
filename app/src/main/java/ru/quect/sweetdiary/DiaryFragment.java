@@ -36,7 +36,7 @@ public class DiaryFragment extends Fragment {
         ArrayList<DiaryEntry> dataset = new ArrayList<>(10);
         Random random = new Random();
         for (int i = 0; i < 10; i++) {
-            DiaryEntry entry = new DiaryEntry(random.nextDouble() * 10);
+            DiaryEntry entry = new DiaryEntry((short) random.nextInt(240));
             dataset.add(entry);
         }
         mAdapter = new DiaryAdapter(getActivity(), dataset);

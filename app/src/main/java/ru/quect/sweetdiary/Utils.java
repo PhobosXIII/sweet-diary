@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 public class Utils {
+    public static final float GLUCOSE_CONVERT_KOEF = 18;
     private Utils() {
 
     }
@@ -16,10 +17,14 @@ public class Utils {
                 .equals(context.getString(R.string.glucose_units_si));
     }
 
-    public static String formatGlucose(Context context, double glucose) {
-        if (!isGlucoseSI(context)) {
-            glucose = glucose * 18;
+    public static String formatGlucose(Context context, short glucose) {
+        if (isGlucoseSI(context)) {
+            float glucoseSI = glucose / GLUCOSE_CONVERT_KOEF;
+            return context.getString(R.string.format_glucose_si, glucoseSI);
         }
-        return context.getString(R.string.format_glucose, glucose);
+        else {
+            return context.getString(R.string.format_glucose_traditional, glucose);
+        }
+
     }
 }

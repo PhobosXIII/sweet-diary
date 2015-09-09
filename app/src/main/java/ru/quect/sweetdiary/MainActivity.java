@@ -35,7 +35,7 @@ public abstract class MainActivity extends AppCompatActivity
 
         mNavigationView.getMenu().performIdentifierAction(mSelectedNavItemId, 0);
 
-        if (BuildConfig.DEBUG) {
+        if (BuildConfig.VIEW_SERVER) {
             ViewServer.get(this).addWindow(this);
         }
     }
@@ -43,7 +43,7 @@ public abstract class MainActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
-        if (BuildConfig.DEBUG) {
+        if (BuildConfig.VIEW_SERVER) {
             ViewServer.get(this).setFocusedWindow(this);
         }
     }
@@ -52,7 +52,7 @@ public abstract class MainActivity extends AppCompatActivity
     protected void onDestroy() {
         super.onDestroy();
 
-        if (BuildConfig.DEBUG) {
+        if (BuildConfig.VIEW_SERVER) {
             ViewServer.get(this).removeWindow(this);
         }
     }

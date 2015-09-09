@@ -1,0 +1,14 @@
+ext {
+    baseApplicationId = "ru.quect.sweetdiary"
+    fieldViewServer = "VIEW_SERVER"
+
+    lite = [
+        applicationId: "${baseApplicationId}.lite",
+        versionName: "1.0-lite"
+    ]
+
+    pro = [
+        applicationId: "${baseApplicationId}.pro",
+        versionName: "1.0-pro"
+    ]
+}

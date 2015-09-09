@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion androidSdkVersion
     buildToolsVersion "23.0.0"
 
     defaultConfig {
-        applicationId "ru.quect.sweetdiary"
+        applicationId baseApplicationId
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion androidSdkVersion
         versionCode 1
         versionName "1.0"
     }
@@ -16,22 +16,25 @@ android {
         debug {
             applicationIdSuffix ".debug"
             versionNameSuffix "-debug"
+            buildConfigField 'boolean', fieldViewServer, 'true'
         }
         release {
-            minifyEnabled false
+            buildConfigField 'boolean', fieldViewServer, 'false'
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
+    productFlavors.whenObjectAdded { flavor ->
+        def flavorData = rootProject.ext[flavor.name]
+        flavor.applicationId = flavorData.applicationId
+        flavor.versionName = flavorData.versionName
+    }
+
     productFlavors {
-        lite {
-            applicationId "ru.quect.sweetdiary.lite"
-            versionName "1.0-lite"
-        }
-        pro {
-            applicationId "ru.quect.sweetdiary.pro"
-            versionName "1.0-pro"
-        }
+        lite {}
+        pro {}
     }
 
     compileOptions {

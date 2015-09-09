@@ -19,6 +19,7 @@ build/
 
 # Local configuration file (sdk path, etc)
 local.properties
+/distribution/signing.properties
 
 # Log Files
 *.log
